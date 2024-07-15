@@ -1,0 +1,22 @@
+.products-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    gap:20px;
+    flex-wrap: wrap;
+    margin-top:80px;
+    padding: 0 200px;
+   
+}
+
+.product-card{
+    /* border:2px solid red; */
+    width:220px;
+}
+
+.product-card img {
+    width:180px;
+    height:180px;
+    object-fit: contain;
+    
+}

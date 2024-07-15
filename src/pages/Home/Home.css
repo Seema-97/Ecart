@@ -1,0 +1,8 @@
+/* slider code */
+
+.slider-img {
+    width:83vw !important;
+    height:89vh!important;
+    object-fit: cover;
+    margin: auto;
+}

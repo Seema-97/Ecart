@@ -1,0 +1,31 @@
+form{
+    text-align: center;
+}
+
+.input-row {
+   display:flex;
+   align-items: center;
+   justify-content: center;
+   gap:12px;
+}
+
+.get-dataBtn-container{
+    text-align: center;
+}
+
+.table-container{
+   display:flex;
+   align-items: center;
+   justify-content: center;
+}
+
+table,
+td {
+    border: 1px solid gray;
+    border-collapse: collapse;
+}
+
+td {
+    padding: 5px 15px;
+}
+
