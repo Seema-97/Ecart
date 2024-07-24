@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react'
-import navLogo from '../../images/logo-ecart.svg'
+import navLogo from '../images/logo-ecart.svg'
 import './Header.css' 
 import { useNavigate } from 'react-router-dom'
 import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
