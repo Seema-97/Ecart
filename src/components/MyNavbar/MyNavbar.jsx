@@ -9,6 +9,7 @@ import { useMedia } from 'react-use';
 import { HEADER_MENUS , routes } from './Routes';
 import {Link as RouterLink} from 'react-router-dom' 
 import { useState } from 'react';
+import './Header.css'
 
 function MyNavbar() {
 
@@ -17,34 +18,45 @@ function MyNavbar() {
  
   const handleSideNavToggle = () => {
     if(!isLargeScreen) {
-      setIsSideNavVisible(true)
+      setIsSideNavVisible(!isSideNavVisible)
     }
   }
 
   return (
     <>
-        <Navbar expand={"lg"} className="bg-body-tertiary mb-3">
+        <div className="ia-header">
+        <Navbar expand={"lg"} className="ia-navbar">
           <Container fluid>
             <Navbar.Brand>
-              <RouterLink className=' text-decoration-none' to={routes.home}>
+              <RouterLink className=' text-dark text-decoration-none' to={routes.home}>
                 Digital Hisab
               </RouterLink>
               </Navbar.Brand>
-            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} onClick={handleSideNavToggle}/>
+            <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-lg`} 
+            onClick={handleSideNavToggle}
+            />
             <Navbar.Offcanvas
               id={`offcanvasNavbar-expand-lg`}
               aria-labelledby={`offcanvasNavbarLabel-expand-lg`}
               placement="end"
+              show={isSideNavVisible}
+              onHide={() => setIsSideNavVisible(false)}
             >
               <Offcanvas.Header closeButton>
                 <Offcanvas.Title id={`offcanvasNavbarLabel-expand-lg`}>
-                  Offcanvas
+                  Inva
                 </Offcanvas.Title>
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link href="#action1">Home</Nav.Link>
-                  <Nav.Link href="#action2">Link</Nav.Link>
+                 {HEADER_MENUS.map(item => (
+                  //  <Nav.Link href="#action1">Home</Nav.Link>
+                  <RouterLink to={item.pathName} key={item.id} className={`nav-link ${isLargeScreen ? "text-light" : "text-dark"}`} 
+                  onClick={handleSideNavToggle}
+                  >
+                    {item.itemName}
+                  </RouterLink>
+                 ))}
                   <NavDropdown
                     title="Dropdown"
                     id={`offcanvasNavbarDropdown-expand-lg`}
@@ -59,20 +71,11 @@ function MyNavbar() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav>
-                <Form className="d-flex">
-                  <Form.Control
-                    type="search"
-                    placeholder="Search"
-                    className="me-2"
-                    aria-label="Search"
-                  />
-                  <Button variant="outline-success">Search</Button>
-                </Form>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
           </Container>
         </Navbar>
-      
+        </div>
     </>
   );
 }
