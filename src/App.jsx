@@ -43,7 +43,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/home" element={<Home />} />
-        <Route path="/products" element={<Products data = {productsData}/>} />
+        <Route path="/products" element={<Products data = {productsData} />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
         
